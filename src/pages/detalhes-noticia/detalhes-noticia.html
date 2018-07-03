@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Notícia</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>  
+    <ion-card>
+        <img src="{{ urlImagensPadrao }}"/>
+        <ion-card-content>
+          <ion-card-title> 
+            {{ noticia.Titulo }}      
+          </ion-card-title>
+          <p>         
+           {{  noticia.Corpo  }}  
+          </p>                 
+        </ion-card-content>
+        <ion-row no-padding>
+          <ion-col>
+            <h3>
+              {{ noticia.Categoria }}
+            </h3>
+          </ion-col>
+          <ion-col text-right>
+          {{noticia.DataPublicacao | date:"dd/MM/yyyy"}} 
+          </ion-col>          
+        </ion-row>
+      </ion-card>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+     </button>
+    <ion-title>Notícias</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let noticia of noticias" (click)="abreDetalhe(noticia)">
+        <ion-thumbnail item-left>
+          <img src="{{ urlImagensPadrao }}">
+        </ion-thumbnail>
+        <h2>{{ noticia.Titulo }} </h2>
+        <p> {{ noticia.Categoria }}</p>
+      </button>
+    </ion-list>  
+  </ion-content>

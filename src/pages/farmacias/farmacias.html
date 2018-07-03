@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Farmacias</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <button ion-item *ngFor="let farmacia of farmacias" (click)="onDetalhes(farmacia)">
+          <h2>Rede: {{ farmacia.Rede }} </h2> 
+          <h2>Loja: {{ farmacia.Loja }} </h2>
+          <h3>Tel: {{farmacia.Telefone}} </h3>
+        </button>
+      </ion-list>  
+</ion-content>

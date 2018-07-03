@@ -1,0 +1,20 @@
+<ion-content padding class="login_css">
+  <p class="text-center">
+    <img src="https://catarinati.com.br/wp-content/uploads/2018/06/NextPlus-Logotipo.png" alt="" width="350" height="300">
+  </p>
+  <ion-list no-lines >
+    <form [formGroup] = "formLogin" >
+      <ion-item class="formclass">
+        <ion-label floating>Usuario</ion-label>
+        <ion-input type="text" formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item class="formclass">
+        <ion-label floating>Senha</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </form>
+  </ion-list>
+  <button ion-button color="primary" large outline block round [disabled]="!formLogin.valid" (click)="submit()" >Entrar</button>
+  <br>
+  <a ion-button color="primary" link outline block round >Recuperar senha</a>
+</ion-content>

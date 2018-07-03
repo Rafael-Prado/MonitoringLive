@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>FarmaciaDetalhe</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card>
+    <div class="map" >
+      <img src = "{{ farmacia.mapa }}">
+      <h2>{{ farmacia.Loja}}</h2>
+    </div>
+    <ion-item>
+      <h5>Endereço</h5>
+      <p>{{farmacia.Endereco}} - {{ farmacia.Bairro}}</p>     
+    </ion-item>
+    <ion-item>
+        <h5>Telefone</h5>
+        <h6>Ligar para a farmácia</h6>
+        <a href="{{ farmacia.Telefone }}" ion-button icon-only round outline>
+            {{ farmacia.Telefone }}
+            <ion-icon name="call" ></ion-icon>
+        </a>              
+      </ion-item>
+  </ion-card>
+
+</ion-content>
