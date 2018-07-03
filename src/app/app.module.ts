@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -9,6 +8,7 @@ import { FarmaciaPage } from './../pages/farmacia/farmacia';
 import { MyApp } from './app.component';
 import { FarmaciaDetalhePage } from './../pages/farmacia-detalhe/farmacia-detalhe';
 import { FarmaciasPage } from './../pages/farmacias/farmacias';
+import { MedicamentoPage } from './../pages/medicamento/medicamento';
 import { MonitoramentoPage } from './../pages/monitoramento/monitoramento';
 import { NoticiaPage } from './../pages/noticia/noticia';
 import { DetalhesNoticiaPage } from './../pages/detalhes-noticia/detalhes-noticia';
@@ -18,6 +18,7 @@ import { LoginPage } from './../pages/login/login';
 
 import { FarmaciaService } from '../providers/farmacia/farmacia.service';
 import { EstadosService } from './../providers/estados/estados.service';
+import { MedicamentoService } from './../providers/medicamento/medicamento.service';
 import { NoticiaService } from './../providers/noticia/noticia.service';
 import { UserService } from './../providers/userservice/user.service';
 
@@ -36,7 +37,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DetalhesNoticiaPage,
     FarmaciaPage,
     FarmaciasPage,
-    FarmaciaDetalhePage
+    FarmaciaDetalhePage,
+    MedicamentoPage,
 
   ],
   imports: [
@@ -56,7 +58,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DetalhesNoticiaPage,
     FarmaciaPage,
     FarmaciasPage,
-    FarmaciaDetalhePage
+    FarmaciaDetalhePage,
+    MedicamentoPage,
+    
   ],
   providers: [
     StatusBar,
@@ -65,7 +69,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     UserService,
     NoticiaService,
     EstadosService,
-    FarmaciaService
+    FarmaciaService,
+    MedicamentoService
   ]
 })
 export class AppModule {}

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Medicamento</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form (ngSubmit)="onForm()">
+    <ion-list>
+      <ion-item>
+          <ion-label color="primary" stacked>Pesquisa</ion-label>
+          <ion-input  [(ngModel)]="palavra" type="text" placeholder="Digite o seu medicamento" name="palavra" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button type="submit" block>Pesquisar</button>
+    </form>
+
+
+    <ion-item *ngFor="let medicamento of medicamentos">
+        <h5>Industria</h5>
+         <p>{{medicamento.Industria}}</p>  
+        <h5>Medicamento</h5>
+         <p>{{medicamento.NomeMedicamento}}</p> 
+        <h5>Principio Ativo</h5>
+          <p>{{medicamento.PrincipioAtivo}}</p> 
+        <h5>Desconto</h5>
+          <p>{{medicamento.DescontoPorcentagem}}</p>  
+      </ion-item>      
+</ion-content>

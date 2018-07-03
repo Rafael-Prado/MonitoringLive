@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { AconselhamentoPage } from '../aconselhamento/aconselhamento';
 import { FarmaciaPage } from './../farmacia/farmacia';
+import { MedicamentoPage } from './../medicamento/medicamento';
 import { MonitoramentoPage } from './../monitoramento/monitoramento';
 import { NoticiaPage } from './../noticia/noticia';
 import { ListPage } from './../list/list';
@@ -23,11 +24,15 @@ export class HomePage {
   }
 
   onNoticia(): void{
-    this.navCtrl.setRoot(NoticiaPage);
+    this.navCtrl.push(NoticiaPage);
   }
 
   onBuscaFarmacia(): void{
     this.navCtrl.push(FarmaciaPage);
+  }
+
+  onBuscaMedicamento(): void{
+    this.navCtrl.push(MedicamentoPage);
   }
 
   onBeneficiario(): void{

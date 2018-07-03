@@ -8,19 +8,19 @@
 </ion-header>
 <ion-content padding>
   <ion-item>
-    <ion-label>Estados</ion-label>
+    <ion-label stacked>Estados</ion-label>
     <ion-select [(ngModel)]="estado" (ionBlur)="getCidades(estado)"  >
       <ion-option *ngFor="let estado of estados" [value] = "estado.Value"  >{{ estado.Value }}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label>Cidades</ion-label>
+    <ion-label stacked>Cidades</ion-label>
     <ion-select [(ngModel)]="cidade" (ionBlur)="getBairro(estado, cidade)"  >
       <ion-option *ngFor="let cidade of cidades" [value] = "cidade.Value" >{{ cidade.Value }}</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label>Bairros</ion-label>
+    <ion-label stacked >Bairros</ion-label>
     <ion-select [(ngModel)]="bairro" (ionBlur)="buscarFarmacia(estado, cidade, bairro)" >
       <ion-option *ngFor="let bairro of bairros" [value] = "bairro.Value" >{{ bairro.Value }}</ion-option>
     </ion-select>
