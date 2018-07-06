@@ -3,15 +3,15 @@
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>{{ informacoes.Empresa }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="contentColor" text-center>
-
-  <img src="http://www.topmed.com.br/wp-content/uploads/2017/03/logo-saude24h.png">
-
-  <button ion-button icon-only round outline class="bottonCss">
+<div *ngFor="let image of informacoes.Propagandas">
+  <img src="{{ image.UrlImagem }}" >
+</div>
+ <button ion-button icon-only round outline class="bottonCss">
     <ion-icon name="card" color=cssbutton></ion-icon>
   </button>
   <button ion-button icon-only round outline class="bottonCss" (click)="onBuscaFarmacia()">

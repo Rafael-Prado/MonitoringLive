@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AconselhamentoPage } from './../pages/aconselhamento/aconselhamento';
 import { FarmaciaPage } from './../pages/farmacia/farmacia';
 import { MyApp } from './app.component';
+import { InformacoesService } from './../providers/informacoes/informacoes.service';
 import { FarmaciaDetalhePage } from './../pages/farmacia-detalhe/farmacia-detalhe';
 import { FarmaciasPage } from './../pages/farmacias/farmacias';
 import { MedicamentoPage } from './../pages/medicamento/medicamento';
@@ -70,7 +71,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NoticiaService,
     EstadosService,
     FarmaciaService,
-    MedicamentoService
+    MedicamentoService,
+    InformacoesService
   ]
 })
 export class AppModule {}
