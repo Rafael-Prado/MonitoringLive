@@ -1,51 +1,93 @@
-<ion-header >
-  <ion-navbar style="background-color: orange">
+<ion-header color="cssbutton">
+  <ion-navbar>
     <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{ informacoes.Empresa }}</ion-title>
+    <ion-title>Saúde 24H</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="contentColor" text-center>
-<div *ngFor="let image of informacoes.Propagandas">
-  <img src="{{ image.UrlImagem }}" >
+  <ion-slides pager class="imagemPropaganda">
+    <ion-slide *ngFor="let imagen of informacoes?.Propagandas">
+      <a href="{{ imagen.UrlPropaganda }}"> 
+      <img src="{{imagen.UrlImagem}}">
+    </a>
+    </ion-slide>    
+  </ion-slides> 
+  <div class="btnHomeWith" >
+    <button ion-button icon-only round outline class="bottonCss">
+      <ion-icon name="card" color=cssbutton></ion-icon>
+    </button>
+    <p>Carterinha</p>
 </div>
- <button ion-button icon-only round outline class="bottonCss">
-    <ion-icon name="card" color=cssbutton></ion-icon>
-  </button>
+
+<div class="btnHomeCenter">
   <button ion-button icon-only round outline class="bottonCss" (click)="onBuscaFarmacia()">
     <ion-icon name="cart" color=cssbutton></ion-icon>
   </button>
+  <p>Farmacias</p>
+</div>
+
+<div class="btnHomeHeight">
   <button ion-button icon-only round outline class="bottonCss" (click)="onBuscaMedicamento()">
     <ion-icon name="medkit" color=cssbutton></ion-icon>
   </button>
+  <p>Medicamentos</p>
+</div>
 
+<div class="btnHomeWith">
   <button ion-button icon-only round outline class="bottonCss">
     <ion-icon name="videocam" color=cssbutton></ion-icon>
   </button>
+  <p>Video Chamada</p>
+</div>
+
+<div class="btnHomeCenter">
   <button ion-button icon-only round outline class="bottonCss">
     <ion-icon name="chatbubbles" color=cssbutton></ion-icon>
   </button>
+  <p>Chat</p>
+</div>
+
+<div class="btnHomeHeight">
   <button ion-button icon-only round outline class="bottonCss">
     <ion-icon name="call" color=cssbutton></ion-icon>
   </button>
+  <p>Ligar para Central</p>
+</div>
 
-  <a href="{{user.UrlPesquisaSaude}}" ion-button icon-only round outline class="bottonCss">
+<div class="btnHomeWith">
+  <a href="" ion-button icon-only round outline class="bottonCss">
     <ion-icon name="clipboard" color=cssbutton></ion-icon>
   </a>
+  <p>Receitas</p>
+</div>
+
+<div class="btnHomeCenter">
     <button ion-button icon-only round outline class="bottonCss">
       <ion-icon  name="alarm" color=cssbutton></ion-icon>
     </button>
-
+    <p>Alarmes</p>
+</div>
+<div class="btnHomeHeight">
   <button ion-button icon-only round outline class="bottonCss" (click)="onNoticia()" >
     <ion-icon name="paper" color=cssbutton></ion-icon>
   </button>
+  <p>Noticias</p>
+</div>
 
+<div class="btnHomeWith">
   <button ion-button icon-only round outline class="bottonCss">
       <ion-icon name="create" color=cssbutton></ion-icon>
     </button>
-    <a href="{{user.UrlPps}}" ion-button icon-only round outline class="bottonCss">
+
+  <p>Pesquisa Saude</p>
+</div>
+<div class="btnHomeCenter">
+    <a href="" ion-button icon-only round outline class="bottonCss">
       <ion-icon name="heart" color=cssbutton></ion-icon>
     </a>
+    <p>Protuário</p>
+</div>
 </ion-content>

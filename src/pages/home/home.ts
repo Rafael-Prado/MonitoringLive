@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { AconselhamentoPage } from '../aconselhamento/aconselhamento';
 import { FarmaciaPage } from './../farmacia/farmacia';
@@ -10,6 +10,7 @@ import { ListPage } from './../list/list';
 
 import { IInformacoes } from './../../Interfaces/IInformacoes';
 import { InformacoesService } from '../../providers/informacoes/informacoes.service';
+
 
 @Component({
   selector: 'page-home',
@@ -23,22 +24,23 @@ export class HomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public infoService: InformacoesService,
+    public loadingCtrl: LoadingController
   ) 
-  {
-    this.user = this.navParams.get('user');    
+  {    
+            
   }
-  ionViewDidLoad(){
-   this.getInfomacoes();
+  ionViewDidLoad(){   
+    this.getInfomacoes();     
   }
 
   getInfomacoes(){
     this.infoService.getInformacoes()
-    .subscribe(result => {
-      this.informacoes = result;
-      console.log(this.informacoes)
+    .subscribe(result => {      
+        this.informacoes = result;    
     }, error =>{
       console.log(error);
-    })   
+    }) 
+      
   }
 
   onNoticia(): void{
