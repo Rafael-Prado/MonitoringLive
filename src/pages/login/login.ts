@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { HomePage } from './../home/home';
-
 import { UserService } from './../../providers/userservice/user.service';
 
 @IonicPage()
@@ -13,13 +13,15 @@ import { UserService } from './../../providers/userservice/user.service';
 })
 export class LoginPage {
   public formLogin : FormGroup
+  public user: any;
 
   constructor(
     private fb: FormBuilder,
     public navCtrl: NavController,
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
-    public userService: UserService
+    public userService: UserService,
+    private storage: Storage,
     ) {
       this.formLogin = this.fb.group({
       username:['71437565557', Validators.compose([
@@ -46,8 +48,19 @@ export class LoginPage {
     loading.present();
     this.userService.authenticate(this.formLogin.value)
     .subscribe(data => {
+      this.user = data;
+      this.onStorage();
       loading.dismiss();
-     this.navCtrl.setRoot(HomePage, {user: data});
+     this.navCtrl.setRoot(HomePage, {user: this.user});
      });
    }
+
+   onStorage(){
+    this.storage.set('carterinhaFrete', this.user.UrlCarteiraFrente );    
+    this.storage.set('carterinhaVerso', this.user.UrlCarteiraVerso);
+    this.storage.set('urlProntuario', this.user.UrlPps);
+    this.storage.set('urlPesquisaSaude', this.user.UrlPesquisaSaude);
+    this.storage.set('carterinhaVerso', this.user.UrlCarteiraVerso);  
+   }   
+
 }

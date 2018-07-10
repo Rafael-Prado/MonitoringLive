@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { AconselhamentoPage } from '../aconselhamento/aconselhamento';
+import { CarterinhaPage } from './../carterinha/carterinha';
 import { FarmaciaPage } from './../farmacia/farmacia';
 import { MedicamentoPage } from './../medicamento/medicamento';
 import { MonitoramentoPage } from './../monitoramento/monitoramento';
@@ -18,18 +20,27 @@ import { InformacoesService } from '../../providers/informacoes/informacoes.serv
 export class HomePage {  
   public user: any;
   public informacoes: IInformacoes;
+  public urlSaude: string;
+  public urlProntuario: string;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public infoService: InformacoesService,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,       
+    private storage: Storage,
   ) 
   {    
             
   }
   ionViewDidLoad(){   
-    this.getInfomacoes();     
+    this.getInfomacoes();   
+    this.storage.get('urlPesquisaSaude').then((val) => {
+      this.urlSaude = val;    
+    });
+    this.storage.get('urlProntuario').then((val) => {
+      this.urlProntuario = val;
+    });  
   }
 
   getInfomacoes(){
@@ -40,6 +51,10 @@ export class HomePage {
       console.log(error);
     }) 
       
+  }
+
+  onBuscaCarterinha(){
+    this.navCtrl.push(CarterinhaPage);
   }
 
   onNoticia(): void{

@@ -1,7 +1,9 @@
+import { CarterinhaPage } from './../pages/carterinha/carterinha';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { AconselhamentoPage } from './../pages/aconselhamento/aconselhamento';
 import { FarmaciaPage } from './../pages/farmacia/farmacia';
@@ -28,6 +30,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     AconselhamentoPage,
+    CarterinhaPage,
     MyApp,
     HomePage,
     MonitoramentoPage,
@@ -43,11 +46,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp),    
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    AconselhamentoPage,
+    AconselhamentoPage,    
+    CarterinhaPage,
     MyApp,
     HomePage,    
     MonitoramentoPage,

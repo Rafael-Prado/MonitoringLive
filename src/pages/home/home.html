@@ -16,7 +16,7 @@
     </ion-slide>    
   </ion-slides> 
   <div class="btnHomeWith" >
-    <button ion-button icon-only round outline class="bottonCss">
+    <button ion-button icon-only round outline class="bottonCss" (click)="onBuscaCarterinha()">
       <ion-icon name="card" color=cssbutton></ion-icon>  
     </button>
     <div class="label">Carterinha</div> 
@@ -79,14 +79,14 @@
 </div>
 
 <div class="btnHomeWith">
-  <button ion-button icon-only round outline class="bottonCss">
+  <a href="{{ urlSaude }}" ion-button icon-only round outline class="bottonCss">
       <ion-icon name="create" color=cssbutton></ion-icon>
-    </button>
+    </a>
   <div class="label">Pesquisa Saude</div>
 </div>
 
 <div class="btnHomeCenter">
-    <a href="" ion-button icon-only round outline class="bottonCss">
+    <a href="{{ urlProntuario }}" ion-button icon-only round outline class="bottonCss">
       <ion-icon name="heart" color=cssbutton></ion-icon>
     </a>
     <div class="label">Protuário</div>
