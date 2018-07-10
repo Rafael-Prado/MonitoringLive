@@ -6,7 +6,6 @@ import { FarmaciaPage } from './../farmacia/farmacia';
 import { MedicamentoPage } from './../medicamento/medicamento';
 import { MonitoramentoPage } from './../monitoramento/monitoramento';
 import { NoticiaPage } from './../noticia/noticia';
-import { ListPage } from './../list/list';
 
 import { IInformacoes } from './../../Interfaces/IInformacoes';
 import { InformacoesService } from '../../providers/informacoes/informacoes.service';
@@ -53,10 +52,6 @@ export class HomePage {
 
   onBuscaMedicamento(): void{
     this.navCtrl.push(MedicamentoPage);
-  }
-
-  onBeneficiario(): void{
-    this.navCtrl.setRoot(ListPage);
   }
 
   onMonitoramento(): void{

@@ -14,7 +14,6 @@ import { MonitoramentoPage } from './../pages/monitoramento/monitoramento';
 import { NoticiaPage } from './../pages/noticia/noticia';
 import { DetalhesNoticiaPage } from './../pages/detalhes-noticia/detalhes-noticia';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from './../pages/login/login';
 
 import { FarmaciaService } from '../providers/farmacia/farmacia.service';
@@ -32,7 +31,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     MonitoramentoPage,
-    ListPage,
     LoginPage,
     NoticiaPage,
     DetalhesNoticiaPage,
@@ -53,7 +51,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,    
     MonitoramentoPage,
-    ListPage,
     LoginPage,    
     NoticiaPage,
     DetalhesNoticiaPage,
