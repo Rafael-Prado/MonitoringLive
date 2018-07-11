@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { AconselhamentoPage } from '../aconselhamento/aconselhamento';
@@ -22,6 +23,13 @@ export class HomePage {
   public informacoes: IInformacoes;
   public urlSaude: string;
   public urlProntuario: string;
+  public telefoneCentral: string;
+  public options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.FILE_URI,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+  }
 
   constructor(
     public navCtrl: NavController,
@@ -29,10 +37,11 @@ export class HomePage {
     public infoService: InformacoesService,
     public loadingCtrl: LoadingController,       
     private storage: Storage,
+    private camera: Camera
   ) 
-  {    
-            
+  {              
   }
+  
   ionViewDidLoad(){   
     this.getInfomacoes();   
     this.storage.get('urlPesquisaSaude').then((val) => {
@@ -40,7 +49,11 @@ export class HomePage {
     });
     this.storage.get('urlProntuario').then((val) => {
       this.urlProntuario = val;
-    });  
+    }); 
+    this.storage.get('telefoneCentral').then((val) => {
+      this.telefoneCentral = val;
+    });    
+      
   }
 
   getInfomacoes(){
@@ -51,7 +64,7 @@ export class HomePage {
       console.log(error);
     }) 
       
-  }
+  } 
 
   onBuscaCarterinha(){
     this.navCtrl.push(CarterinhaPage);

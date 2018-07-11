@@ -35,10 +35,6 @@ export class LoginPage {
         Validators.required
       ])]
     });
-
-    //  if (this.userService.authenticate()) {
-    //   this.navCtrl.setRoot(HomePage);
-    // }
   }
 
   submit(){
@@ -61,6 +57,11 @@ export class LoginPage {
     this.storage.set('urlProntuario', this.user.UrlPps);
     this.storage.set('urlPesquisaSaude', this.user.UrlPesquisaSaude);
     this.storage.set('carterinhaVerso', this.user.UrlCarteiraVerso);  
-   }   
+   }
+   
+   ionViewCanEnter(){
+     console.log('passe');
+    this.storage.clear();
+   }
 
 }

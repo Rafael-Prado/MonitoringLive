@@ -8,6 +8,16 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from './../pages/login/login';
 import { MonitoramentoPage } from './../pages/monitoramento/monitoramento';
 
+export interface PageInterface {
+  title: string;
+  name: string;
+  component: any;
+  icon: string;
+  logsOut?: boolean;
+  index?: number;
+  tabName?: string;
+  tabComponent?: any;
+}
 
 @Component({
   templateUrl: 'app.html'
@@ -17,17 +27,23 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen
+  )
+  {
+
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Monitoring Lives App ', component: HomePage,},    
-      { title: 'Monitoramento', component: MonitoramentoPage },        
-      { title: 'Aconselhamento', component: AconselhamentoPage },      
-      { title: 'Logout', component: LoginPage },  
+      { title: 'Monitoring Lives App ', component: HomePage, icon :'closed-captioning'},    
+      { title: 'Monitoramento', component: MonitoramentoPage, icon: 'albums' },        
+      { title: 'Aconselhamento', component: AconselhamentoPage, icon: 'call' },      
+      { title: 'Logout', component: LoginPage, icon: 'close-circle'  },  
     ];
 
   }
