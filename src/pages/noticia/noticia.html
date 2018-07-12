@@ -8,9 +8,18 @@
 </ion-header>
 <ion-content>
     <ion-list>
+        <form (ngSubmit)="onForm()">
+            <ion-list>
+              <ion-item>
+                  <ion-label color="primary" stacked>Pesquisa</ion-label>
+                  <ion-input  [(ngModel)]="palavra" type="text" placeholder="Digite sua pesquisa" name="palavra" [ngModelOptions]="{standalone: true}"></ion-input>
+              </ion-item>
+            </ion-list>
+            <button ion-button type="submit" block>Pesquisar</button>
+         </form>
       <button ion-item *ngFor="let noticia of noticias" (click)="abreDetalhe(noticia)">
         <ion-thumbnail item-left>
-          <img src="{{ urlImagensPadrao }}">
+          <img src="{{ noticia.UrlImagemCapa }}">
         </ion-thumbnail>
         <h2>{{ noticia.Titulo }} </h2>
         <p> {{ noticia.Categoria }}</p>

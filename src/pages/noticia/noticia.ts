@@ -13,7 +13,7 @@ import { NoticiaService } from './../../providers/noticia/noticia.service';
 export class NoticiaPage {
 
   public noticias: any =[];
-  public urlImagensPadrao: string = 'https://lh3.googleusercontent.com/3crCthS1lszNVQ4TDhgOZYHoqwJpyS7UStCclfqNchFrN18tnW5ZvPA093BfOzqXlw=w300';
+  public palavra : string;
 
   constructor(
     public navCtrl: NavController, 
@@ -27,9 +27,21 @@ export class NoticiaPage {
   ionViewDidLoad() {
     this.getAllNoticias();
   }
+  onForm(): void{    
+    this.getNoticia(this.palavra);
+  }
 
   getAllNoticias(){
     this.noticiasService.GetAllNoticias()
+    .subscribe(result => {
+      this.noticias = result;
+    }, error =>{
+      console.log(error);
+    });
+  }
+
+  getNoticia(palavra){
+    this.noticiasService.GetNoticias(palavra)
     .subscribe(result => {
       this.noticias = result;
     }, error =>{

@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -28,11 +29,12 @@ export class MyApp {
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any, icon: any}>;
-
+  foto: any;
   constructor(
     public platform: Platform, 
     public statusBar: StatusBar, 
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen,
+    public storage: Storage
   )
   {
 
@@ -50,8 +52,11 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {      
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+    this.statusBar.styleDefault();
+    this.splashScreen.hide();
+    this.storage.get('telefoneCentral').then((val) => {
+      this.foto = val;
+    });
     });
   }
 

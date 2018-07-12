@@ -1,4 +1,3 @@
-import { CarterinhaPage } from './../pages/carterinha/carterinha';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -6,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { AconselhamentoPage } from './../pages/aconselhamento/aconselhamento';
+import { CarterinhaPage } from './../pages/carterinha/carterinha';
 import { FarmaciaPage } from './../pages/farmacia/farmacia';
 import { MyApp } from './app.component';
 import { InformacoesService } from './../providers/informacoes/informacoes.service';
@@ -26,6 +26,7 @@ import { UserService } from './../providers/userservice/user.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     EstadosService,
     FarmaciaService,
     MedicamentoService,
-    InformacoesService
+    InformacoesService,
+    Camera
   ]
 })
 export class AppModule {}

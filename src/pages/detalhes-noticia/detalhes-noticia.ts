@@ -11,7 +11,7 @@ import { NoticiaService } from './../../providers/noticia/noticia.service';
 })
 export class DetalhesNoticiaPage {
   public noticia: INoticiaInterface;
-  public urlImagensPadrao: string = 'https://lh3.googleusercontent.com/3crCthS1lszNVQ4TDhgOZYHoqwJpyS7UStCclfqNchFrN18tnW5ZvPA093BfOzqXlw=w300';
+  public noticiaCorpo: string;
   constructor(
     public navCtrl: NavController,
      public navParams: NavParams,
@@ -24,7 +24,7 @@ export class DetalhesNoticiaPage {
       this.noticiaService.GetNoticiaPorId(this.noticia.Id)
       .subscribe(result => {
         let n = result;
-        this.noticia.Corpo = n.Corpo;   
+        this.noticiaCorpo = n.Corpo   
       }),
       error => {
         console.log(error);

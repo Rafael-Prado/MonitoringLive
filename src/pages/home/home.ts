@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { AconselhamentoPage } from '../aconselhamento/aconselhamento';
@@ -31,6 +32,7 @@ export class HomePage {
     public infoService: InformacoesService,
     public loadingCtrl: LoadingController,       
     private storage: Storage,
+    private camera: Camera
   ) 
   {              
   }
@@ -57,7 +59,22 @@ export class HomePage {
       console.log(error);
     }) 
       
-  } 
+  }
+  
+  getCamera(){
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    this.camera.getPicture(options).then((imageData) => {
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.storage.set('foto', base64Image);
+     }, (err) => {
+      console.log(err);
+     });
+  }
 
   onBuscaCarterinha(){
     this.navCtrl.push(CarterinhaPage);

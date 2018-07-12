@@ -23,4 +23,9 @@ export class NoticiaService {
       .pipe(map(res => res.json()));
   }
 
+  public GetNoticias(palavra: string){
+    return this.http.get(this.serviceUrl + 'api/Noticias/'+ palavra)
+      .pipe(map(res => res.json()));
+  }
+
 }

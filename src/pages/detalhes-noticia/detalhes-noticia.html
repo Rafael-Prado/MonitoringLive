@@ -7,14 +7,12 @@
 </ion-header>
 <ion-content padding>  
     <ion-card>
-        <img src="{{ urlImagensPadrao }}"/>
+        <img src="{{ noticia.UrlImagemCapa}}"/>
         <ion-card-content>
           <ion-card-title> 
             {{ noticia.Titulo }}      
-          </ion-card-title>
-          <p>         
-           {{  noticia.Corpo  }}  
-          </p>                 
+          </ion-card-title> 
+            <div [innerHTML]="noticiaCorpo" ></div>
         </ion-card-content>
         <ion-row no-padding>
           <ion-col>
