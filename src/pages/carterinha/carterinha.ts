@@ -11,6 +11,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CarterinhaPage {
   public carterinhaFrete: string;
   public carterinhaVerso: string;
+  public nomeUsuario:string;
+  public codigoCarterinha: string;
+  public telefoneCentra: string;
 
   constructor(
     public navCtrl: NavController,
@@ -27,6 +30,15 @@ export class CarterinhaPage {
     });
     this.storage.get('carterinhaVerso').then((val) => {
       this.carterinhaVerso = val;
+    });
+    this.storage.get('nomeUsuario').then((val) => {
+      this.nomeUsuario = val;    
+    });
+    this.storage.get('carterinha').then((val) => {
+      this.codigoCarterinha = val;
+    });
+    this.storage.get('Telefonecentral').then((val) => {
+      this.telefoneCentra = val;
     });
   }
 }

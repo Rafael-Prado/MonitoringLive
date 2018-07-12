@@ -1,3 +1,36 @@
 page-carterinha {
+    .card-background-page {
+
+        ion-card {
+          position: relative;
+          text-align: center;
+        }
+      
+        .card-title {
+          position: absolute;
+          top: 15%;
+          font-size: 1.5em;
+          width: 100%;
+          font-weight: bold;
+          color: #228B22;
+        }
+      
+        .card-Nome {
+          font-size: 1.0em;
+          position: absolute;
+          top: 40%;
+          width: 100%;
+          color: #228B22;
+        }
+
+        .card-Carterinha {
+            font-size: 1.0em;
+            position: absolute;
+            top: 55%;
+            width: 100%;
+            color: #228B22;
+          }
+      
+      }
 
 }

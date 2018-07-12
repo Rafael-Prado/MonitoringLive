@@ -6,7 +6,17 @@
   <ion-title>Carterinha</ion-title>
 </ion-navbar>
 </ion-header>
-<ion-content padding>
-   <ion-img style="width: 100%; height: 100%;" src="{{ carterinhaFrete }}"></ion-img>
-  <ion-img style="width: 100%; height: 100%;" src="{{ carterinhaVerso }}"></ion-img>
+<ion-content class="card-background-page">
+
+    <ion-card>
+        <img src="{{ carterinhaFrete }}"/>
+      </ion-card>    
+      <ion-card>
+        <img src="{{ carterinhaVerso }}"/>
+        <div class="card-title">Central Atendimento: {{ telefoneCentra }}</div>
+        <div class="card-Nome">Nome: {{ nomeUsuario }}</div>        
+        <div class="card-Carterinha">Codigo Carterinha: {{ codigoCarterinha }}</div>
+    </ion-card>
+   <!-- <ion-img style="width: 100%; height: 100%;" src="{{ carterinhaFrete }}"></ion-img>
+  <ion-img style="width: 100%; height: 100%;" src="{{ carterinhaVerso }}"></ion-img>  -->
 </ion-content>
