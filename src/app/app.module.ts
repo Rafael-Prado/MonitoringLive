@@ -28,6 +28,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 
+import { SocketIoModule, SocketIoConfig } from 'ng2-socket-io';
+import { ChatProvider } from '../providers/chat/chat';
+const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
+
 @NgModule({
   declarations: [
     AconselhamentoPage,
@@ -47,24 +51,25 @@ import { Camera } from '@ionic-native/camera';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),    
-    IonicStorageModule.forRoot()
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
+    SocketIoModule.forRoot(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    AconselhamentoPage,    
+    AconselhamentoPage,
     CarterinhaPage,
     MyApp,
-    HomePage,    
+    HomePage,
     MonitoramentoPage,
-    LoginPage,    
+    LoginPage,
     NoticiaPage,
     DetalhesNoticiaPage,
     FarmaciaPage,
     FarmaciasPage,
     FarmaciaDetalhePage,
     MedicamentoPage,
-    
+
   ],
   providers: [
     StatusBar,
@@ -76,7 +81,8 @@ import { Camera } from '@ionic-native/camera';
     FarmaciaService,
     MedicamentoService,
     InformacoesService,
-    Camera
+    Camera,
+    ChatProvider
   ]
 })
 export class AppModule {}

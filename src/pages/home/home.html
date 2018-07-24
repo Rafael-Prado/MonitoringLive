@@ -10,22 +10,22 @@
 <ion-content class="contentColor" text-center>
   <ion-slides pager class="imagemPropaganda">
     <ion-slide *ngFor="let imagen of informacoes?.Propagandas">
-      <a href="{{ imagen.UrlPropaganda }}"> 
+      <a href="{{ imagen.UrlPropaganda }}">
       <img src="{{imagen.UrlImagem}}">
     </a>
-    </ion-slide>    
-  </ion-slides> 
+    </ion-slide>
+  </ion-slides>
   <div class="btnHomeWith">
     <button ion-button icon-only round outline class="bottonCss" (click)="onNoticia()">
-      <ion-icon name="paper" color=cssbutton></ion-icon>  
+      <ion-icon name="paper" color=cssbutton></ion-icon>
     </button>
-    <div class="label">Noticias</div> 
+    <div class="label">Noticias</div>
 </div>
 
 <div class="btnHomeCenter">
- 
+
   <button ion-button icon-only round outline class="bottonCss" (click)="onBuscaFarmacia()">
-    <ion-icon name="cart" color=cssbutton></ion-icon>   
+    <ion-icon name="cart" color=cssbutton></ion-icon>
   </button>
   <div class="label">Farmacias</div>
 </div>
@@ -45,7 +45,7 @@
 </div>
 
 <div class="btnHomeCenter">
-  <button ion-button icon-only round outline class="bottonCss">
+  <button ion-button icon-only round outline class="bottonCss"  (click)="onChat()">
     <ion-icon name="chatbubbles" color=cssbutton></ion-icon>
   </button>
   <div class="label">Chat</div>

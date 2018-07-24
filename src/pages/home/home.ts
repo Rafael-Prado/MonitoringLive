@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Socket } from 'ng2-socket-io';
 
 import { AconselhamentoPage } from '../aconselhamento/aconselhamento';
 import { CarterinhaPage } from './../carterinha/carterinha';
@@ -18,49 +19,54 @@ import { InformacoesService } from '../../providers/informacoes/informacoes.serv
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {  
+export class HomePage {
   public user: any;
   public informacoes: IInformacoes;
   public urlSaude: string;
   public urlProntuario: string;
   public telefoneCentral: string;
-  
+  public nomeUsuario: string;
+
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public infoService: InformacoesService,
-    public loadingCtrl: LoadingController,       
+    public loadingCtrl: LoadingController,
     private storage: Storage,
-    private camera: Camera
-  ) 
-  {              
+    private camera: Camera,
+    private socket: Socket
+  )
+  {
   }
-  
-  ionViewDidLoad(){   
-    this.getInfomacoes();   
+
+  ionViewDidLoad(){
+    this.getInfomacoes();
     this.storage.get('urlPesquisaSaude').then((val) => {
-      this.urlSaude = val;    
+      this.urlSaude = val;
     });
     this.storage.get('urlProntuario').then((val) => {
       this.urlProntuario = val;
-    }); 
+    });
     this.storage.get('telefoneCentral').then((val) => {
       this.telefoneCentral = val;
-    });    
-      
+    });
+    this.storage.get('nomeUsuario').then((val) => {
+      this.nomeUsuario = val;
+    });
+
   }
 
   getInfomacoes(){
     this.infoService.getInformacoes()
-    .subscribe(result => {      
-        this.informacoes = result;    
+    .subscribe(result => {
+        this.informacoes = result;
     }, error =>{
       console.log(error);
-    }) 
-      
+    })
+
   }
-  
+
   getCamera(){
     const options: CameraOptions = {
       quality: 100,
@@ -98,6 +104,12 @@ export class HomePage {
 
   onAconselhamento(): void{
     this.navCtrl.setRoot(AconselhamentoPage);
+  }
+
+  onChat(){
+    this.socket.connect();
+    this.socket.emit('set-pradoname', this.nomeUsuario);
+    this.navCtrl.setRoot('ChatPage', {chatname: this.nomeUsuario});
   }
 
 }
