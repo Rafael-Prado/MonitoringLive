@@ -62,7 +62,7 @@ export class VideoChamadaPage {
     const options: InAppBrowserOptions = {
     zoom: 'no'
     }
-    const browser = this.iab.create(url, '_self', options);
+    const browser = this.iab.create(url, '_system', options);
   }
 
 }
