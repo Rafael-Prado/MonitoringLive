@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { IVideochamada } from '../../Interfaces/IVideochamada';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
 @IonicPage()
@@ -20,7 +21,8 @@ export class VideoChamadaPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private storage: Storage,
-    private videoChamadaProvider: VideoChamadaProvider
+    private videoChamadaProvider: VideoChamadaProvider,
+    private iab: InAppBrowser
     )
     {
       this.videoChamada = new IVideochamada();
@@ -49,10 +51,18 @@ export class VideoChamadaPage {
     this.videoChamadaProvider.PostVideoChamada(this.videoChamada)
     .subscribe( (result: any) =>{
       this.videoChamada.urlChamada = result.Url;
+      this.openBroser(this.videoChamada.urlChamada);
     }, error =>{
       console.log(error);
     });
 
+  }
+
+  openBroser(url: string){
+    const options: InAppBrowserOptions = {
+    zoom: 'no'
+    }
+    const browser = this.iab.create(url, '_self', options);
   }
 
 }

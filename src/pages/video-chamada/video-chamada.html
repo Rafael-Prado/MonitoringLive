@@ -3,7 +3,7 @@
       <button ion-button icon-only menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title>Medicamento</ion-title>
+    <ion-title>Vídeo Chamada</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -11,10 +11,10 @@
     <ion-list>
       <ion-item>
           <ion-label color="primary" stacked>Telefone</ion-label>
-          <ion-input  [(ngModel)]="telefone" type="tel" placeholder="telefone" name="palavra" [ngModelOptions]="{standalone: true}"></ion-input>
+          <ion-input  [(ngModel)]="telefone" type="tel" placeholder="telefone" name="telefone" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
     </ion-list>
-    <a href='{{ videoChamada.urlChamada }}' ion-button block (click)="onForm()">Chamar</a>
+    <button ion-button block (click)="onForm()">Chamar</button>
     </form>
 
 </ion-content>

@@ -32,6 +32,9 @@ import { Camera } from '@ionic-native/camera';
 
 import { SocketIoModule, SocketIoConfig } from 'ng2-socket-io';
 import { ChatProvider } from '../providers/chat/chat';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser'
+
 const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
 
 @NgModule({
@@ -87,7 +90,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
     InformacoesService,
     Camera,
     ChatProvider,
-    VideoChamadaProvider
+    VideoChamadaProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}

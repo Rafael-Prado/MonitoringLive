@@ -109,13 +109,13 @@ export class HomePage {
   }
 
   onChamadaVideo(){
-    this.navCtrl.setRoot(VideoChamadaPage);
+    this.navCtrl.push(VideoChamadaPage);
   }
 
   onChat(){
     this.socket.connect();
     this.socket.emit('set-pradoname', this.nomeUsuario);
-    this.navCtrl.setRoot('ChatPage', {chatname: this.nomeUsuario});
+    this.navCtrl.push('ChatPage', {chatname: this.nomeUsuario});
   }
 
 }
