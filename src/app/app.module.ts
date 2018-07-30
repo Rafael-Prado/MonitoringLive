@@ -1,3 +1,4 @@
+import { VideoChamadaPage } from './../pages/video-chamada/video-chamada';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -17,6 +18,7 @@ import { NoticiaPage } from './../pages/noticia/noticia';
 import { DetalhesNoticiaPage } from './../pages/detalhes-noticia/detalhes-noticia';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from './../pages/login/login';
+import { VideoChamadaProvider } from '../providers/video-chamada/video-chamada';
 
 import { FarmaciaService } from '../providers/farmacia/farmacia.service';
 import { EstadosService } from './../providers/estados/estados.service';
@@ -46,6 +48,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
     FarmaciasPage,
     FarmaciaDetalhePage,
     MedicamentoPage,
+    VideoChamadaPage
 
   ],
   imports: [
@@ -69,6 +72,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
     FarmaciasPage,
     FarmaciaDetalhePage,
     MedicamentoPage,
+    VideoChamadaPage
 
   ],
   providers: [
@@ -82,7 +86,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
     MedicamentoService,
     InformacoesService,
     Camera,
-    ChatProvider
+    ChatProvider,
+    VideoChamadaProvider
   ]
 })
 export class AppModule {}

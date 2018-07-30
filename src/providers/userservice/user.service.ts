@@ -14,7 +14,6 @@ export class UserService {
        'Usuario':  data.username ,
         'Senha': data.password 
       });
-      console.log(us)
     let header = new Headers();
      header.append('Content-Type', 'application/json')
     return this.http

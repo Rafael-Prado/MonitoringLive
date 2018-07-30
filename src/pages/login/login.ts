@@ -24,13 +24,13 @@ export class LoginPage {
     private storage: Storage,
     ) {
       this.formLogin = this.fb.group({
-      username:['71437565557', Validators.compose([
+      username:['', Validators.compose([
         Validators.minLength(3),
         Validators.maxLength(120),
         Validators.required
       ])],
       password:['', Validators.compose([
-        Validators.minLength(6),
+        Validators.minLength(4),
         Validators.maxLength(20),
         Validators.required
       ])]
@@ -52,16 +52,17 @@ export class LoginPage {
    }
 
    onStorage(){
-    this.storage.set('carterinhaFrete', this.user.UrlCarteiraFrente );    
+    this.storage.set('carterinhaFrete', this.user.UrlCarteiraFrente );
     this.storage.set('carterinhaVerso', this.user.UrlCarteiraVerso);
     this.storage.set('nomeUsuario', this.user.Nome);
+    this.storage.set('idUsuario', this.user.IdUsuario);
     this.storage.set('carterinha', this.user.CodigoCarteira);
     this.storage.set('Telefonecentral', this.user.TelefoneEmpresa);
 
     this.storage.set('urlProntuario', this.user.UrlPps);
     this.storage.set('urlPesquisaSaude', this.user.UrlPesquisaSaude);
    }
-   
+
    ionViewCanEnter(){
      console.log('passe');
     this.storage.clear();

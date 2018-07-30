@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Medicamento</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form (ngSubmit)="onForm()">
+    <ion-list>
+      <ion-item>
+          <ion-label color="primary" stacked>Telefone</ion-label>
+          <ion-input  [(ngModel)]="telefone" type="tel" placeholder="Telefone" name="palavra" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button type="submit" block>Chamar</button>
+    </form>
+
+</ion-content>
+

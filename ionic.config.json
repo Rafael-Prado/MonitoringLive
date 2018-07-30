@@ -1,8 +1,9 @@
 {
   "name": "PradoSystemMonitoringLivesApp",
-  "app_id": "594c559e",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "ionic-angular",
+  "pro_id": "594c559e",
+  "app_id": ""
 }

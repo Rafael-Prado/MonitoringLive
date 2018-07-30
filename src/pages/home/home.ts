@@ -4,7 +4,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Socket } from 'ng2-socket-io';
 
-import { AconselhamentoPage } from '../aconselhamento/aconselhamento';
+
 import { CarterinhaPage } from './../carterinha/carterinha';
 import { FarmaciaPage } from './../farmacia/farmacia';
 import { MedicamentoPage } from './../medicamento/medicamento';
@@ -13,6 +13,8 @@ import { NoticiaPage } from './../noticia/noticia';
 
 import { IInformacoes } from './../../Interfaces/IInformacoes';
 import { InformacoesService } from '../../providers/informacoes/informacoes.service';
+import { PrescricaoPage } from '../prescricao/prescricao';
+import { VideoChamadaPage } from '../video-chamada/video-chamada';
 
 
 @Component({
@@ -102,8 +104,12 @@ export class HomePage {
     this.navCtrl.setRoot(MonitoramentoPage);
   }
 
-  onAconselhamento(): void{
-    this.navCtrl.setRoot(AconselhamentoPage);
+  onPrescricao(): void{
+    this.navCtrl.setRoot(PrescricaoPage);
+  }
+
+  onChamadaVideo(){
+    this.navCtrl.setRoot(VideoChamadaPage);
   }
 
   onChat(){

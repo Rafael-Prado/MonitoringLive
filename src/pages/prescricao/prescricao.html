@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+     </button>
+    <ion-title>Prescrição</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <form (ngSubmit)="onForm()">
+            <ion-list>
+              <ion-item>
+                  <ion-label color="primary" stacked>Pesquisa</ion-label>
+                  <ion-input  [(ngModel)]="prescricao.Descricao" type="text" placeholder="Prescrição" name="descricao" [ngModelOptions]="{standalone: true}"></ion-input>
+              </ion-item>
+            </ion-list>
+            <button ion-button type="submit" block>Salvar</button>
+         </form>
+      <button ion-item *ngFor="let p of prescricoes">
+        <ion-thumbnail item-left>
+          <img src="{{ p.Img }}">
+        </ion-thumbnail>
+        <h2>{{ p.Descricao }} </h2>
+      </button>
+    </ion-list>
+  </ion-content>
