@@ -7,14 +7,14 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <form (ngSubmit)="onForm()">
+    <form >
     <ion-list>
       <ion-item>
           <ion-label color="primary" stacked>Telefone</ion-label>
-          <ion-input  [(ngModel)]="telefone" type="tel" placeholder="Telefone" name="palavra" [ngModelOptions]="{standalone: true}"></ion-input>
+          <ion-input  [(ngModel)]="telefone" type="tel" placeholder="telefone" name="palavra" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
     </ion-list>
-    <button ion-button type="submit" block>Chamar</button>
+    <a href='{{ videoChamada.urlChamada }}' ion-button block (click)="onForm()">Chamar</a>
     </form>
 
 </ion-content>

@@ -49,14 +49,10 @@ export class VideoChamadaPage {
     this.videoChamadaProvider.PostVideoChamada(this.videoChamada)
     .subscribe( (result: any) =>{
       this.videoChamada.urlChamada = result.Url;
-      this.abrirBroser(this.videoChamada.urlChamada);
     }, error =>{
       console.log(error);
     });
 
-  }
-  abrirBroser(urle: string){
-   window.location.href= urle;
   }
 
 }
